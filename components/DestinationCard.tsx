@@ -4,7 +4,7 @@ import { Destination } from '../data/destinations';
 
 export default function DestinationCard({ destination }: { destination: Destination }) {
   return (
-    <article className="group overflow-hidden rounded-[2px] bg-white shadow-[0_8px_30px_rgba(25,59,58,0.08)]">
+    <article className="group overflow-hidden rounded-xs bg-white shadow-[0_8px_30px_rgba(25,59,58,0.08)]">
       <div className="relative h-64 w-full overflow-hidden">
         <Image fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw" src={destination.image} alt={`${destination.name} landscape`} className="object-cover transition duration-700 group-hover:scale-105" />
         <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#193b3a]">{destination.country}</span>
