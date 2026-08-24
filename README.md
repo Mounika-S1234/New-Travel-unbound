@@ -1,3 +1,20 @@
+# Travel Unbounded
+
+Small Next.js app for the assignment. Start locally:
+
+```bash
+cd travel-unbounded
+npm install
+npm run dev
+```
+
+Environment:
+
+- `MONGODB_URI` optional. If not set, enquiries are saved to `data/enquiries.json` for local testing.
+
+API:
+
+- POST `/api/enquiry` — accepts booking enquiry JSON and returns success/failure.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
