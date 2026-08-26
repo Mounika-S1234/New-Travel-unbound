@@ -36,6 +36,12 @@ export async function POST(req: Request){
     if(err) return NextResponse.json({ success: false, message: err }, { status: 400 });
 
     const db = await connectToDatabase();
+    if(!db && process.env.NODE_ENV === 'production'){
+      return NextResponse.json(
+        { success: false, message: 'Enquiry service is not configured. Please add MONGODB_URI in Vercel.' },
+        { status: 503 },
+      );
+    }
     if(db){
       const created = await Enquiry.create({
         fullName: body.fullName,

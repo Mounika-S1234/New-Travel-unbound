@@ -10,7 +10,23 @@ npm run dev
 
 Environment:
 
-- `MONGODB_URI` optional. If not set, enquiries are saved to `data/enquiries.json` for local testing.
+- `MONGODB_URI` is required in production. Without it, local development saves enquiries to `data/enquiries.json`; Vercel returns a configuration error because its filesystem is not persistent.
+
+### Vercel setup
+
+1. Create a MongoDB Atlas free cluster and database user.
+2. In MongoDB Atlas, allow access from Vercel by adding `0.0.0.0/0` to Network Access.
+3. In the Vercel project, open **Settings > Environment Variables**.
+4. Add `MONGODB_URI` with the MongoDB connection string for **Production**, **Preview**, and **Development**.
+5. Redeploy the project after saving the variable.
+
+The connection string should look like:
+
+```text
+mongodb+srv://username:password@cluster.mongodb.net/travel-unbounded
+```
+
+Never commit the real connection string. `.env.local` is ignored by Git.
 
 API:
 
